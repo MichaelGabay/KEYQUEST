@@ -110,7 +110,7 @@ function PianoKeyboard({ targetNote, onNotePlayed, disabled }) {
             onMouseDown={(e) => e.preventDefault()}
             tabIndex={-1}
             disabled={disabled}
-            className={`${getKeyClass(note, false)} border-0 w-14 h-56 rounded-b-md shadow-md relative z-0 cursor-pointer`}
+            className={`${getKeyClass(note, false)} border-0 w-10 h-40 rounded-b-md shadow-md relative z-0 cursor-pointer`}
           >
           </button>
         ))}
@@ -123,8 +123,8 @@ function PianoKeyboard({ targetNote, onNotePlayed, disabled }) {
             onMouseDown={(e) => e.preventDefault()}
             tabIndex={-1}
             disabled={disabled}
-            className={`${getKeyClass('C#', true)} absolute w-12 h-40 rounded-b-md shadow-lg z-10 pointer-events-auto cursor-pointer border-0`}
-            style={{ left: '32px' }}
+            className={`${getKeyClass('C#', true)} absolute w-9 h-28 rounded-b-md shadow-lg z-10 pointer-events-auto cursor-pointer border-0`}
+            style={{ left: '22px' }}
           >
           </button>
 
@@ -134,8 +134,8 @@ function PianoKeyboard({ targetNote, onNotePlayed, disabled }) {
             onMouseDown={(e) => e.preventDefault()}
             tabIndex={-1}
             disabled={disabled}
-            className={`${getKeyClass('D#', true)} absolute w-12 h-40 rounded-b-md shadow-lg z-10 pointer-events-auto cursor-pointer`}
-            style={{ left: '88px' }}
+            className={`${getKeyClass('D#', true)} absolute w-9 h-28 rounded-b-md shadow-lg z-10 pointer-events-auto cursor-pointer`}
+            style={{ left: '62px' }}
           >
           </button>
 
@@ -145,8 +145,8 @@ function PianoKeyboard({ targetNote, onNotePlayed, disabled }) {
             onMouseDown={(e) => e.preventDefault()}
             tabIndex={-1}
             disabled={disabled}
-            className={`${getKeyClass('F#', true)} absolute w-12 h-40 rounded-b-md shadow-lg z-10 pointer-events-auto cursor-pointer`}
-            style={{ left: '200px' }}
+            className={`${getKeyClass('F#', true)} absolute w-9 h-28 rounded-b-md shadow-lg z-10 pointer-events-auto cursor-pointer`}
+            style={{ left: '142px' }}
           >
           </button>
 
@@ -156,8 +156,8 @@ function PianoKeyboard({ targetNote, onNotePlayed, disabled }) {
             onMouseDown={(e) => e.preventDefault()}
             tabIndex={-1}
             disabled={disabled}
-            className={`${getKeyClass('G#', true)} absolute w-12 h-40 rounded-b-md shadow-lg z-10 pointer-events-auto cursor-pointer`}
-            style={{ left: '256px' }}
+            className={`${getKeyClass('G#', true)} absolute w-9 h-28 rounded-b-md shadow-lg z-10 pointer-events-auto cursor-pointer`}
+            style={{ left: '182px' }}
           >
           </button>
 
@@ -167,8 +167,8 @@ function PianoKeyboard({ targetNote, onNotePlayed, disabled }) {
             onMouseDown={(e) => e.preventDefault()}
             tabIndex={-1}
             disabled={disabled}
-            className={`${getKeyClass('A#', true)} absolute w-12 h-40 rounded-b-md shadow-lg z-10 pointer-events-auto cursor-pointer`}
-            style={{ left: '312px' }}
+            className={`${getKeyClass('A#', true)} absolute w-9 h-28 rounded-b-md shadow-lg z-10 pointer-events-auto cursor-pointer`}
+            style={{ left: '222px' }}
           >
           </button>
         </div>
