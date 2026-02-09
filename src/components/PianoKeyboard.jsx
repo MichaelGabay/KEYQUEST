@@ -115,7 +115,7 @@ function PianoKeyboard({ targetNote, onNotePlayed, disabled }) {
                 tabIndex={-1}
                 disabled={disabled}
                 className={`${getKeyClass(note, false)} flex-1 min-w-0 rounded-b-md sm:rounded-b-lg shadow-md relative z-0 cursor-pointer touch-none`}
-                style={{ 
+                style={{
                   minHeight: '120px',
                   height: '100%'
                 }}
