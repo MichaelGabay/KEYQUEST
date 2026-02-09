@@ -2,6 +2,7 @@
 
 /* Remove outline and tap highlight from all buttons */
 button {
+  border: none;
   outline: none !important;
   -webkit-tap-highlight-color: transparent !important;
   tap-highlight-color: transparent !important;

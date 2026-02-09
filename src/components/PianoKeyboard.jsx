@@ -89,8 +89,8 @@ function PianoKeyboard({ targetNote, onNotePlayed, disabled }) {
     } else {
       // Default colors
       colorClass = isBlack
-        ? 'bg-gray-900 hover:bg-gray-700'
-        : 'bg-white hover:bg-gray-100';
+        ? 'bg-gray-900 hover:bg-gray-700 active:bg-gray-800'
+        : 'bg-white hover:bg-gray-50 active:bg-gray-100';
     }
 
     // Add border only for white keys when not pressed
@@ -100,77 +100,117 @@ function PianoKeyboard({ targetNote, onNotePlayed, disabled }) {
   };
 
   return (
-    <div className="flex justify-center items-center mt-8">
-      <div className="relative inline-flex">
-        {/* White keys */}
-        {WHITE_KEYS.map((note) => (
-          <button
-            key={note}
-            onClick={(e) => playNote(note, e)}
-            onMouseDown={(e) => e.preventDefault()}
-            tabIndex={-1}
-            disabled={disabled}
-            className={`${getKeyClass(note, false)} border-0 w-10 h-40 rounded-b-md shadow-md relative z-0 cursor-pointer`}
-          >
-          </button>
-        ))}
+    <div className="flex justify-center items-center mt-8 w-full px-2 sm:px-4 md:px-6">
+      <div className="relative w-full max-w-[600px] mx-auto">
+        {/* Container for responsive sizing */}
+        <div className="relative w-full" style={{ aspectRatio: '7/2.5' }}>
+          {/* White keys container */}
+          <div className="absolute inset-0 flex">
+            {WHITE_KEYS.map((note) => (
+              <button
+                key={note}
+                onClick={(e) => playNote(note, e)}
+                onMouseDown={(e) => e.preventDefault()}
+                onTouchStart={(e) => e.preventDefault()}
+                tabIndex={-1}
+                disabled={disabled}
+                className={`${getKeyClass(note, false)} flex-1 min-w-0 rounded-b-md sm:rounded-b-lg shadow-md relative z-0 cursor-pointer touch-none`}
+                style={{ 
+                  minHeight: '120px',
+                  height: '100%'
+                }}
+              >
+              </button>
+            ))}
+          </div>
 
-        {/* Black keys */}
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-          {/* C# - between C and D */}
-          <button
-            onClick={(e) => playNote('C#', e)}
-            onMouseDown={(e) => e.preventDefault()}
-            tabIndex={-1}
-            disabled={disabled}
-            className={`${getKeyClass('C#', true)} absolute w-9 h-28 rounded-b-md shadow-lg z-10 pointer-events-auto cursor-pointer border-0`}
-            style={{ left: '22px' }}
-          >
-          </button>
+          {/* Black keys container - positioned absolutely */}
+          <div className="absolute top-0 left-0 w-full h-[65%] pointer-events-none">
+            {/* C# - between C and D (after 1st white key) */}
+            <button
+              onClick={(e) => playNote('C#', e)}
+              onMouseDown={(e) => e.preventDefault()}
+              onTouchStart={(e) => e.preventDefault()}
+              tabIndex={-1}
+              disabled={disabled}
+              className={`${getKeyClass('C#', true)} absolute rounded-b-md sm:rounded-b-lg shadow-lg z-10 pointer-events-auto cursor-pointer border-0 touch-none`}
+              style={{
+                width: 'clamp(28px, 12%, 50px)',
+                height: '100%',
+                left: '14.2857%',
+                transform: 'translateX(-50%)',
+              }}
+            >
+            </button>
 
-          {/* D# - between D and E */}
-          <button
-            onClick={(e) => playNote('D#', e)}
-            onMouseDown={(e) => e.preventDefault()}
-            tabIndex={-1}
-            disabled={disabled}
-            className={`${getKeyClass('D#', true)} absolute w-9 h-28 rounded-b-md shadow-lg z-10 pointer-events-auto cursor-pointer`}
-            style={{ left: '62px' }}
-          >
-          </button>
+            {/* D# - between D and E (after 2nd white key) */}
+            <button
+              onClick={(e) => playNote('D#', e)}
+              onMouseDown={(e) => e.preventDefault()}
+              onTouchStart={(e) => e.preventDefault()}
+              tabIndex={-1}
+              disabled={disabled}
+              className={`${getKeyClass('D#', true)} absolute rounded-b-md sm:rounded-b-lg shadow-lg z-10 pointer-events-auto cursor-pointer border-0 touch-none`}
+              style={{
+                width: 'clamp(28px, 12%, 50px)',
+                height: '100%',
+                left: '28.5714%',
+                transform: 'translateX(-50%)',
+              }}
+            >
+            </button>
 
-          {/* F# - between F and G */}
-          <button
-            onClick={(e) => playNote('F#', e)}
-            onMouseDown={(e) => e.preventDefault()}
-            tabIndex={-1}
-            disabled={disabled}
-            className={`${getKeyClass('F#', true)} absolute w-9 h-28 rounded-b-md shadow-lg z-10 pointer-events-auto cursor-pointer`}
-            style={{ left: '142px' }}
-          >
-          </button>
+            {/* F# - between F and G (after 4th white key) */}
+            <button
+              onClick={(e) => playNote('F#', e)}
+              onMouseDown={(e) => e.preventDefault()}
+              onTouchStart={(e) => e.preventDefault()}
+              tabIndex={-1}
+              disabled={disabled}
+              className={`${getKeyClass('F#', true)} absolute rounded-b-md sm:rounded-b-lg shadow-lg z-10 pointer-events-auto cursor-pointer border-0 touch-none`}
+              style={{
+                width: 'clamp(28px, 12%, 50px)',
+                height: '100%',
+                left: '57.1429%',
+                transform: 'translateX(-50%)',
+              }}
+            >
+            </button>
 
-          {/* G# - between G and A */}
-          <button
-            onClick={(e) => playNote('G#', e)}
-            onMouseDown={(e) => e.preventDefault()}
-            tabIndex={-1}
-            disabled={disabled}
-            className={`${getKeyClass('G#', true)} absolute w-9 h-28 rounded-b-md shadow-lg z-10 pointer-events-auto cursor-pointer`}
-            style={{ left: '182px' }}
-          >
-          </button>
+            {/* G# - between G and A (after 5th white key) */}
+            <button
+              onClick={(e) => playNote('G#', e)}
+              onMouseDown={(e) => e.preventDefault()}
+              onTouchStart={(e) => e.preventDefault()}
+              tabIndex={-1}
+              disabled={disabled}
+              className={`${getKeyClass('G#', true)} absolute rounded-b-md sm:rounded-b-lg shadow-lg z-10 pointer-events-auto cursor-pointer border-0 touch-none`}
+              style={{
+                width: 'clamp(28px, 12%, 50px)',
+                height: '100%',
+                left: '71.4286%',
+                transform: 'translateX(-50%)',
+              }}
+            >
+            </button>
 
-          {/* A# - between A and B */}
-          <button
-            onClick={(e) => playNote('A#', e)}
-            onMouseDown={(e) => e.preventDefault()}
-            tabIndex={-1}
-            disabled={disabled}
-            className={`${getKeyClass('A#', true)} absolute w-9 h-28 rounded-b-md shadow-lg z-10 pointer-events-auto cursor-pointer`}
-            style={{ left: '222px' }}
-          >
-          </button>
+            {/* A# - between A and B (after 6th white key) */}
+            <button
+              onClick={(e) => playNote('A#', e)}
+              onMouseDown={(e) => e.preventDefault()}
+              onTouchStart={(e) => e.preventDefault()}
+              tabIndex={-1}
+              disabled={disabled}
+              className={`${getKeyClass('A#', true)} absolute rounded-b-md sm:rounded-b-lg shadow-lg z-10 pointer-events-auto cursor-pointer border-0 touch-none`}
+              style={{
+                width: 'clamp(28px, 12%, 50px)',
+                height: '100%',
+                left: '85.7143%',
+                transform: 'translateX(-50%)',
+              }}
+            >
+            </button>
+          </div>
         </div>
       </div>
     </div>
